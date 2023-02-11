@@ -1,0 +1,11 @@
+Route::get('admin/news', [App\Http\Controllers\Admin\NewsController::class, 'index'])->name('news');
+Route::get('admin/news/trash', [App\Http\Controllers\Admin\NewsController::class, 'trash'])->name('trash-news');
+Route::get('admin/news/restore/{id}', [App\Http\Controllers\Admin\NewsController::class, 'restore'])->name('trash-restore-news');
+Route::get('admin/news/force/{id}', [App\Http\Controllers\Admin\NewsController::class, 'force'])->name('trash-force-news');
+Route::get('admin/news/create', [App\Http\Controllers\Admin\NewsController::class, 'create'])->name('add-news');
+Route::post('admin/news/create/success', [App\Http\Controllers\Admin\NewsController::class, 'store'])->name('store-news');
+Route::get('admin/news/edit/{id}', [App\Http\Controllers\Admin\NewsController::class, 'edit'])->name('edit-news');
+Route::resource('/news-update', \App\Http\Controllers\Admin\NewsController::class);
+Route::delete('admin/news/deleted{id}', [App\Http\Controllers\Admin\NewsController::class, 'destroy'])->name('destroy-news');
+Route::get('admin/news/show{id}', [App\Http\Controllers\Admin\NewsController::class, 'show'])->name('show-news');
+Route::post('admin/news/image', [App\Http\Controllers\Admin\NewsController::class, 'storeImage'])->name('storeImages-news');
